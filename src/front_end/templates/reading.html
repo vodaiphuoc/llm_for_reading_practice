@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+{% block question_content %}
+<div class="question-list">
+    {% for question_data in example.question_list -%}
+        <h5><strong>{{question_data._order}}</strong>:{{question_data.question}}</h5>
+        <div class="choices">
+            {% for k,v in question_data.options.items() -%}
+                <label>
+                    <input type="radio" name="{{question_data._order}}" value= "{{k}}" /><span><strong>{{k}}.</strong> {{v}}</span>
+                </label>
+            {%- endfor %}
+            
+        </div>
+    {%- endfor %}
+</div>
+<div class = 'num_questions' name ='{{ example.num_questions }}'>number of questions: {{ example.num_questions }} questions</div>
+{% endblock %}
+
+
+{% block paragraph_content %}
+<div class= "paragraph">{{example.paragraph}}</div>
+{% endblock %}
+
+{% block paragraph_id %}
+{{example._id}}
+{% endblock %}
+
+<!-- 
+<span id="myresults" class="my-results">My results will appear here</span>
+ -->

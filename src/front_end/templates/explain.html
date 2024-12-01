@@ -1,0 +1,16 @@
+{% block question_content %}
+<div class="question-list">
+    {% for single_model_reponse in model_response.questions -%}
+        <h5><strong>Question:</strong> {{single_model_reponse.question}}</h5>
+        <div class="choices">
+            <h5><strong>Correct answer:</strong> {{single_model_reponse.correct_answer}}</h5>
+            <h5><strong>Your answer:</strong> {{single_model_reponse.my_answer}}</h5>
+            <h5><strong>Key evidence:</strong> {{single_model_reponse.evidence}}</h5>
+            <h5><strong>Explaination:</strong> {{single_model_reponse.explaination}}</h5>
+        </div>
+        
+    {%- endfor %}
+    <h5><strong>Summarization:</strong> {{model_response.summarization}}</h5>
+</div>
+{% endblock %}
+
